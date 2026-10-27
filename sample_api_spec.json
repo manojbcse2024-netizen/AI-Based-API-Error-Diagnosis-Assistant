@@ -1,0 +1,13 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "Example Inventory API", "version": "1.0.0"},
+  "paths": {
+    "/v1/items": {
+      "post": {
+        "summary": "Create an inventory item",
+        "description": "Requires the inventory:write scope. Send a JSON body with name (string, required) and quantity (integer, required, non-negative). Return 201 on success, 401 when authentication is missing or invalid, 403 when the caller lacks scope, and 422 when the request body fails validation. Rate limits may return 429 with a Retry-After header.",
+        "responses": {"201": {"description": "Created"}, "401": {"description": "Authentication required"}, "403": {"description": "Insufficient permissions"}, "422": {"description": "Validation error"}, "429": {"description": "Rate limit exceeded"}}
+      }
+    }
+  }
+}
